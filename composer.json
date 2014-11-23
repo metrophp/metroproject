@@ -25,7 +25,7 @@
     "require": {
         "rain/raintpl": ">=3.0.0",
         "metrodb": "1.2.0",
-        "metrofw": "0.9.2",
+        "metrofw": "0.9.3",
         "metrodi": ">=3.0.0"
     },
     "config": {
