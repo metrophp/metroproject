@@ -1,7 +1,6 @@
 <?php
 _iCanHandle('analyze',   'metrofw/analyzer.php');
 _iCanHandle('analyze',   'metrofw/router.php', 3);
-_iCanHandle('resources', 'metrofw/utils.php');
 _iCanHandle('output',    'metrofw/output.php');
 //will be removed if output.php doesn't think we need HTML output
 _iCanHandle('output',    'metrofw/template.php', 3);
