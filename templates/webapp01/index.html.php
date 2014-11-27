@@ -47,6 +47,8 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+      <?php echo Metrofw_Template::parseSection('nav'); ?>
+
 
     <div class="container">
 
@@ -54,6 +56,8 @@
     	<h1>Hello, Metro!</h1>
         <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
       </div>
+
+      <?php echo Metrofw_Template::parseSection('main'); ?>
 
     </div><!-- /.container -->
 
