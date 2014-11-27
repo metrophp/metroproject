@@ -24,9 +24,9 @@
     ],
     "require": {
         "rain/raintpl": ">=3.0.0",
-        "metrodb": "1.2.0",
-        "metrofw": "0.9.6",
-        "metrodi": ">=3.0.0-beta5"
+        "metrodb": ">=1.2.0",
+        "metrofw": ">=0.9.5",
+        "metrodi": ">=3.0.0-beta6"
     },
     "config": {
         "vendor-dir": "local"
