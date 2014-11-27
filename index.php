@@ -19,7 +19,8 @@ if (!@include ('local/metrofw/kernel.php')) {
 
 $container = Metrodi_Container::getContainer();
 $kernel    = new Metrofw_Kernel($container);
-_didef('kernel', $kernel);
+_didef('kernel',    $kernel);
+_didef('container', $container);
 
 if(!include('etc/bootstrap.php')) {
 	echo "please setup your etc/bootstrap.php file.";
