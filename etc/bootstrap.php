@@ -19,6 +19,11 @@ _didef('foobar',         (object)array());
 
 _didef('loggerService',  (object)array());
 
+//metrodb
+_didef('dataitem', 'metrodb/dataitem.php');
+#Metrodb_Connector::setDsn('default', 'mysql://root:mysql@127.0.0.1:3306/metrodb_test');
+//end metrodb
+
 //_didef('taxcalc',  'utils/taxcaclculatorv1.php');
 //_didef('taxcalc',  '\FER\Utils\Taxcalculator');
 
