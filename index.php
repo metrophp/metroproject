@@ -22,12 +22,12 @@ $kernel    = new Metrofw_Kernel($container);
 _didef('kernel',    $kernel);
 _didef('container', $container);
 
+include ('local/autoload.php');
+
 if(!include('etc/bootstrap.php')) {
 	echo "please setup your etc/bootstrap.php file.";
 	exit();
 }
-
-include ('local/autoload.php');
 
 $kernel->runMaster();
 
