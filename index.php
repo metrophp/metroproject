@@ -2,7 +2,7 @@
 date_default_timezone_set('UTC');
 $metrofw_start = microtime(true);
 
-if (!@include ('local/metrodi/container.php')) {
+if (!@include ('local/metrophp/metrodi/container.php')) {
 	header('HTTP/1.1 500 Internal Server Error');
 	echo 'System startup failure.  Incomplete dependencies.';
 	exit();
