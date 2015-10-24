@@ -1,5 +1,17 @@
 <?php
-//_set('env', 'dev');
+//default to develop environment
+//this connects with $request->isDevelopment() $request->isDemo() $request->isEnv('prod')
+_set('env', 'dev');
+//override with Apache SetEnv
+// or fastcgi_param   APPLICATION_ENV  production
+if (array_key_exists('APPLICATION_ENV', $_SERVER)) {
+	_set('env', $_SERVER['APPLICATION_ENV']);
+}
+if (array_key_exists('APP_ENV', $_SERVER)) {
+	_set('env', $_SERVER['APP_ENV']);
+}
+
+//setup metrofw
 _iCanHandle('analyze',   'metrofw/analyzer.php');
 _iCanHandle('analyze',   'metrofw/router.php', 3);
 _iCanHandle('resources', 'metrofw/output.php');
