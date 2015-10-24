@@ -11,10 +11,29 @@ class Template_Rain {
 		Tpl::configure(
 			[
 			'tpl_ext'=>'html.php',
-			'tpl_dir'=>'src/'.$request->appName.'/views',
+			'tpl_dir'       =>[
+				$templatePath.'views/'.$request->appName.'/',
+				'src/'.$request->appName.'/views/',
+				'local/'.$request->appName.'/views/'
+			],
 			'cache_dir'=>'var/cache/'
 			]
 		);
+
+		Tpl::registerTag(	"({%asseturl.*?%})", // preg split
+			"{%asseturl (.*?)%}", // preg match
+			function( $params ){ // function called by the tag
+				return m_url().$params[1][0];
+			}
+		);
+
+		Tpl::registerTag(	"({%templateurl.*?%})", // preg split
+			"{%templateurl (.*?)%}", // preg match
+			function( $params ){ // function called by the tag
+				return m_turl().$params[1][0];
+			}
+		);
+
 		try {
 			$t = new Tpl;
 			$t->var = $response->sectionList;
@@ -26,8 +45,14 @@ class Template_Rain {
 			ob_end_clean();
 			echo $x;
 		} catch (Exception $e) {
-			//TODO: show errors in dev mode
-			//meh.. just keep goin
+			if ($request->isDevelopment()) {
+				throw $e;
+			}
+			//output.php::hangup() will set the header for 500
+			//if we are in production mode, we can set apache or
+			// nginx in cgi mode to intercept status headers and
+			// show a custom 500/501 page.
+			$response->statusCode = 500;
 		}
 	}
 }
