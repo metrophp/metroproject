@@ -15,7 +15,7 @@ class Template_Rain {
 
 		Tpl::configure(
 			[
-			'tpl_ext'=>'html.php',
+			'tpl_ext'=>'tpl',
 			'tpl_dir'       =>[
 				$templatePath.'views/'.$request->appName.'/',
 				'src/'.$request->appName.'/views/',
