@@ -8,13 +8,19 @@ class Template_Rain {
 	 * TODO: parse section list if no file present
 	 */
 	public function template($request, $response, $template_section) {
+		if ($response->statusCode == 500) {
+			return;
+		}
+		$templatePath = _get('template_basedir')._get('template_name').'/';
+
 		Tpl::configure(
 			[
 			'tpl_ext'=>'html.php',
 			'tpl_dir'       =>[
 				$templatePath.'views/'.$request->appName.'/',
 				'src/'.$request->appName.'/views/',
-				'local/'.$request->appName.'/views/'
+				'local/'.$request->appName.'/views/',
+				$templatePath.'views/',
 			],
 			'cache_dir'=>'var/cache/'
 			]
