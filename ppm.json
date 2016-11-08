@@ -1,0 +1,15 @@
+{
+    "bridge": "Metrofw_Ppm",
+    "host": "127.0.0.1",
+    "port": 8080,
+    "workers": 10,
+    "app-env": "dev",
+    "debug": 1,
+    "logging": 1,
+    "static": true,
+    "bootstrap": "PHPPM\\Bootstraps\\Unused",
+    "max-requests": 1000,
+    "concurrent-requests": false,
+    "socket-path": ".ppm\/run\/",
+    "cgi-path": "\/usr\/bin\/php-cgi7.0"
+}
