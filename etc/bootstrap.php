@@ -37,7 +37,7 @@ _didef('dataitem', 'metrodb/dataitem.php');
 #Metrodb_Connector::setDsn('default', 'mysql://root:mysql@127.0.0.1:3306/metrodb_test');
 //end metrodb
 
-//metrou
+//Users
 #_iCanHandle('authenticate', 'metrou/authenticator.php');
 #_iCanHandle('authorize',    'metrou/authorizer.php::requireLogin');
 
@@ -49,10 +49,7 @@ _didef('dataitem', 'metrodb/dataitem.php');
 //things
 #_didef('user',           'metrou/user.php');
 #_didef('session',        'metrou/sessiondb.php');
-//end metrou
-
-//_didef('taxcalc',  'utils/taxcaclculatorv1.php');
-//_didef('taxcalc',  '\FER\Utils\Taxcalculator');
+//end Users
 
 _set('template_basedir', 'templates/');
 _set('template_baseuri', 'templates/');
