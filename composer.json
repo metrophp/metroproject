@@ -1,6 +1,6 @@
 {
     "name": "metroproject",
-    "version": "0.13.0",
+    "version": "0.14.0",
     "license": "MIT",
     "authors": [
         {
@@ -28,7 +28,7 @@
     ],
     "require": {
         "rain/raintpl": ">=3.0.0",
-        "metrodb": ">=2.0.2",
+        "metrodb": ">=2.1.0",
         "metrofw": ">=1.4.1",
         "metrou":  ">=0.9.3",
         "metrophp/metrodi": ">=3.1.3",
