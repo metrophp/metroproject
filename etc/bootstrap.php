@@ -20,35 +20,35 @@ _iCanHandle('output',    'metrofw/output.php');
 _iCanHandle('output',    'metrofw/template.php', 3);
 
 #raintpl
-_iCanHandle('template.main',    'template/rain.php::template', 3);
+_iCanHandle('template.main', 'template/rain.php::template', 3);
 
-_iCanHandle('exception', 'metrofw/exdump.php::onException');
-_iCanHandle('hangup',    'metrofw/output.php');
+_iCanHandle('exception',     'metrofw/exdump.php::onException');
+_iCanHandle('hangup',        'metrofw/output.php');
 
-_didef('request',        'metrofw/request.php');
-_didef('response',       'metrofw/response.php');
-_didef('router',         'metrofw/router.php');
-_didef('foobar',         (object)array());
+_didef('request',            'metrofw/request.php');
+_didef('response',           'metrofw/response.php');
+_didef('router',             'metrofw/router.php');
+_didef('foobar',             (object)array());
 
-_didef('loggerService',  (object)array());
+_didef('loggerService',      (object)array());
 
-//metrodb
-_didef('dataitem', 'metrodb/dataitem.php');
+//Database
+_didef('dataitem',                   'metrodb/dataitem.php');
 #Metrodb_Connector::setDsn('default', 'mysql://root:mysql@127.0.0.1:3306/metrodb_test');
-//end metrodb
+//end Database
 
 //Users
-#_iCanHandle('authenticate', 'metrou/authenticator.php');
-#_iCanHandle('authorize',    'metrou/authorizer.php::requireLogin');
+#_connect('authenticate',         'metrou/authenticator.php');
+#_connect('authorize',            'metrou/authorizer.php::requireLogin');
 
 //events
-#_iCanHandle('access.denied',        'metrou/login.php::accessDenied');
-#_iCanHandle('authenticate.success', 'metrou/login.php::authSuccess');
-#_iCanHandle('authenticate.failure', 'metrou/login.php::authFailure');
+#_connect('access.denied',        'metrou/login.php::accessDenied');
+#_connect('authenticate.success', 'metrou/login.php::authSuccess');
+#_connect('authenticate.failure', 'metrou/login.php::authFailure');
 
 //things
-#_didef('user',           'metrou/user.php');
-#_didef('session',        'metrou/sessiondb.php');
+#_didef('user',                   'metrou/user.php');
+#_didef('session',                'metrou/sessiondb.php');
 //end Users
 
 _set('template_basedir', 'templates/');
