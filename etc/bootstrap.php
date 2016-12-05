@@ -12,18 +12,18 @@ if (array_key_exists('APP_ENV', $_SERVER)) {
 }
 
 //setup metrofw
-_iCanHandle('analyze',   'metrofw/analyzer.php');
-_iCanHandle('analyze',   'metrofw/router.php', 3);
-_iCanHandle('resources', 'metrofw/output.php');
-_iCanHandle('output',    'metrofw/output.php');
+_connect('analyze',   'metrofw/analyzer.php');
+_connect('analyze',   'metrofw/router.php', 3);
+_connect('resources', 'metrofw/output.php');
+_connect('output',    'metrofw/output.php');
 //will be removed if output.php doesn't think we need HTML output
-_iCanHandle('output',    'metrofw/template.php', 3);
+_connect('output',    'metrofw/template.php', 3);
 
 #raintpl
-_iCanHandle('template.main', 'template/rain.php::template', 3);
+_connect('template.main', 'template/rain.php::template', 3);
 
-_iCanHandle('exception',     'metrofw/exdump.php::onException');
-_iCanHandle('hangup',        'metrofw/output.php');
+_connect('exception',     'metrofw/exdump.php::onException');
+_connect('hangup',        'metrofw/output.php');
 
 _didef('request',            'metrofw/request.php');
 _didef('response',           'metrofw/response.php');
