@@ -51,11 +51,14 @@ _didef('dataitem',                   'metrodb/dataitem.php');
 #_didef('session',                'metrou/sessiondb.php');
 //end Users
 
+#template
 _set('template_basedir', 'templates/');
 _set('template_baseuri', 'templates/');
 _set('template_name',    'webapp01');
 _set('site_title',       'Hello Metro');
+_connect('template.sparkmsg', 'template/sparkmsg.php::template');
 
+#routes
 _set('route_rules',  array() );
 
 _set('route_rules',
