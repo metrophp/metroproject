@@ -48,6 +48,10 @@ _didef('dataitem',           'metrodb/dataitem.php');
 #_didef('session',                'metrou/sessiondb.php');
 //end Users
 
+//Email
+_didef('emailService',  'email/swiftmailer.php', ['smtp_host'=>'smtp.gmail.com', 'smtp_port'=>465, 'smtp_security'=>'ssl', 'smtp_user'=>'', 'smtp_password'=>'']);
+_set('noreply_email', 'noreply@example.com');
+
 #template
 _set('template_basedir', 'templates/');
 _set('template_baseuri', 'templates/');
