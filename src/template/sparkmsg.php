@@ -16,6 +16,16 @@ class Template_Sparkmsg {
 				case 'err':
 					$cssType = 'danger';
 					break;
+				case 'warn':
+				case 'msg_warn':
+					$cssType = 'warning';
+					break;
+				case 'msg_info':
+					$cssType = 'info';
+					break;
+				case 'msg_success':
+					$cssType = 'success';
+					break;
 			}
 			echo'
 <div class="alert alert-'.$cssType.' alert-dismissible" role="alert">
@@ -26,7 +36,6 @@ echo '
 </div>
 ';
 			unset($msgList[$_idx]);
-
 		}
 		$response->set('sparkmsg',$msgList);
 	}
