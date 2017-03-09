@@ -72,13 +72,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+      <a class="navbar-brand"><?php echo _get('site_title');?></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="<?php echo m_appurl();?>">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <?php if ($user->isAnonymous()): ?>
+            <li><a href="<?php echo m_appurl('login');?>">Sign in</a></li>
+            <?php endif; ?>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
