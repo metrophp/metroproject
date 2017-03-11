@@ -35,8 +35,12 @@ _didef('dataitem',           'metrodb/dataitem.php');
 //end Database
 
 //Users
-#_connect('authenticate',         'metrou/authenticator.php');
-#_connect('authorize',            'metrou/authorizer.php::requireLogin');
+_didef('authorizer', 'metrou/authorizer.php',
+    array('/', '/login', '/dologin', '/logout', '/dologout', '/register')
+);
+$authorizer = _make('authorizer');
+_connect('authorize',            $authorizer);
+_connect('authenticate',         'metrou/authenticator.php');
 
 //events
 #_connect('access.denied',        'metrou/login.php::accessDenied');
