@@ -2,13 +2,34 @@
 //default to develop environment
 //this connects with $request->isDevelopment() $request->isDemo() $request->isEnv('prod')
 _set('env', 'dev');
-//override with Apache SetEnv
-// or fastcgi_param   APPLICATION_ENV  production
-if (array_key_exists('APPLICATION_ENV', $_SERVER)) {
-	_set('env', $_SERVER['APPLICATION_ENV']);
+
+
+//set all environment variables from $_ENV, .env and .env.{APP_ENV}
+//where $_ENV overrides .env and .env.{APP_ENV} overrides .env
+$envList = @array_merge(
+  file_exists('.env') ? @parse_ini_file('.env', FALSE, INI_SCANNER_TYPED) : [],
+  file_exists('.env.'._get('env')) ? @parse_ini_file('.env.'._get('env'), FALSE, INI_SCANNER_TYPED) : [],
+  $_ENV);
+
+if (is_array($envList)) {
+	foreach ($envList as $envK=>$envV) {
+		_set($envK, $envV);
+	}
 }
-if (array_key_exists('APP_ENV', $_SERVER)) {
-	_set('env', $_SERVER['APP_ENV']);
+
+//find APP_ENV or APPLICATION_ENV server or env and set
+//our 'env' key for metrofw request and others
+//Apache: SetEnv        APP_ENV production
+//Nginx: fastcgi_param  APP_ENV production
+foreach (array('APPLICATION_ENV', 'APP_ENV') as $_envkey) {
+	if (array_key_exists($_envkey, $_SERVER)) {
+		_set('env', $_SERVER[$_envkey]);
+		break;
+	}
+	if (getenv($_envkey) !==FALSE) {
+		_set('env', getenv($_envkey));
+		break;
+	}
 }
 
 //setup metrofw
